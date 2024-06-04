@@ -6,18 +6,16 @@ interface List {
     save(): void,
     clearList(): void,
     addItem(itemObjct: ListItem): void,
-    removeitem(id: string): void
+    removeItem(id: string): void
 }
 
-export default class FullList extends List {
+export default class FullList implements List {
 
     static instance: FullList = new FullList();
 
     private constructor(
         private _list: ListItem[] = []
-    ) {
-        super()
-    }
+    ) {}
 
     get list(): ListItem[] {
         return this._list
